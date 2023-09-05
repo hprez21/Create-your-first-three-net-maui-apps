@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="AmiibopediaDemo.MainPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    BackgroundColor="#1A1A2E">
+
+    <Grid Margin="15" RowDefinitions=".1*,.1*,.8*">
+        <VerticalStackLayout>
+            <Label
+                FontAttributes="Bold"
+                FontSize="30"
+                Text="Amiibopedia"
+                TextColor="White" />
+            <Label Text="Search for Amiibo by name" TextColor="White" />
+        </VerticalStackLayout>
+        <Grid Grid.Row="1" HeightRequest="50">
+            <RoundRectangle CornerRadius="15" Fill="#F5F5F5" />
+            <SearchBar
+                x:Name="search"
+                Placeholder="What Amiibo are you looking for?"
+                VerticalOptions="Center" />
+        </Grid>
+
+        <CollectionView Grid.Row="2" ItemsSource="{Binding Amiibos}">
+            <!--<CollectionView.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>Mario</x:String>
+                    <x:String>Link</x:String>
+                    <x:String>Pikachu</x:String>
+                    <x:String>Zelda</x:String>
+                    <x:String>Bowser</x:String>
+                </x:Array>
+            </CollectionView.ItemsSource>-->
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid
+                        ColumnDefinitions=".3*, .7*"
+                        HeightRequest="165"
+                        RowDefinitions="*,*">
+                        <Border
+                            Grid.RowSpan="2"
+                            Grid.ColumnSpan="2"
+                            BackgroundColor="DarkRed"
+                            HeightRequest="150"
+                            StrokeShape="RoundRectangle 5,5,5,5"
+                            VerticalOptions="End">
+
+                            <Grid ColumnDefinitions=".3*,.7*" RowDefinitions="*,*">
+                                <Label
+                                    Grid.Column="1"
+                                    FontAttributes="Bold"
+                                    FontSize="25"
+                                    HorizontalOptions="Center"
+                                    Text="{Binding name}"
+                                    TextColor="White"
+                                    VerticalOptions="Center" />
+
+                                <Label
+                                    Grid.Row="1"
+                                    Grid.Column="1"
+                                    FontSize="15"
+                                    HorizontalOptions="Center"
+                                    Text="{Binding gameSeries, StringFormat='Game Series: {0}'}"
+                                    TextColor="White"
+                                    VerticalOptions="Center" />
+
+                            </Grid>
+
+                        </Border>
+
+                        <Image
+                            Grid.RowSpan="2"
+                            Margin="0,0,0,0"
+                            HeightRequest="165"
+                            Source="{Binding image}"
+                            VerticalOptions="End" />
+
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+
+        </CollectionView>
+
+    </Grid>
+
+</ContentPage>
