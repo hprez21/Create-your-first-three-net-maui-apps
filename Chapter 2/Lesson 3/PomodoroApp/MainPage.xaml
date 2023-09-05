@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="PomodoroApp.MainPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:gauge="clr-namespace:Syncfusion.Maui.Gauges;assembly=Syncfusion.Maui.Gauges"
+    BackgroundColor="#151515">
+
+    <Grid RowDefinitions=".8*,.2*">
+        <!--<gauge:SfRadialGauge>
+            <gauge:SfRadialGauge.Axes>
+                <gauge:RadialAxis Maximum="150" Minimum="0" />
+            </gauge:SfRadialGauge.Axes>
+        </gauge:SfRadialGauge>-->
+
+        <gauge:SfRadialGauge x:Name="gauge">
+            <gauge:SfRadialGauge.Axes>
+                <gauge:RadialAxis
+                    x:Name="axis"
+                    CanRotateLabels="True"
+                    EndAngle="270"
+                    Interval="30"
+                    LabelOffset="0.05"
+                    Maximum="360"
+                    Minimum="0"
+                    MinorTicksPerInterval="4"
+                    OffsetUnit="Factor"
+                    RadiusFactor="1"
+                    ShowAxisLine="False"
+                    StartAngle="270"
+                    TickOffset="0.32">
+                    <gauge:RadialAxis.AxisLabelStyle>
+                        <gauge:GaugeLabelStyle FontSize="11" TextColor="White" />
+                    </gauge:RadialAxis.AxisLabelStyle>
+                    <gauge:RadialAxis.MajorTickStyle>
+                        <gauge:RadialTickStyle
+                            Length="0.087"
+                            LengthUnit="Factor"
+                            Stroke="#FF949494"
+                            StrokeThickness="2.3" />
+                    </gauge:RadialAxis.MajorTickStyle>
+                    <gauge:RadialAxis.MinorTickStyle>
+                        <gauge:RadialTickStyle
+                            Length="0.058"
+                            LengthUnit="Factor"
+                            Stroke="#FF616161"
+                            StrokeThickness="1.6" />
+                    </gauge:RadialAxis.MinorTickStyle>
+
+                    <gauge:RadialAxis.BackgroundContent>
+                        <Image Source="axisbackground.png" />
+                    </gauge:RadialAxis.BackgroundContent>
+
+                    <gauge:RadialAxis.Pointers>
+                        <gauge:ShapePointer
+                            AnimationDuration="1200"
+                            AnimationEasing="{x:Static Easing.SpringOut}"
+                            EnableAnimation="True"
+                            Fill="#FFDF5F2D"
+                            OffsetUnit="Factor"
+                            ShapeHeight="10"
+                            ShapeType="Triangle"
+                            ShapeWidth="15"
+                            Offset="0.71"
+                            Value="90" />
+                    </gauge:RadialAxis.Pointers>
+
+                    <gauge:RadialAxis.Annotations>
+                        <gauge:GaugeAnnotation DirectionValue="270">
+                            <gauge:GaugeAnnotation.Content>
+                                <Label
+                                    FontAttributes="Bold"
+                                    FontSize="22"
+                                    Text="90"
+                                    TextColor="#FFDF5F2D" />
+                            </gauge:GaugeAnnotation.Content>
+                        </gauge:GaugeAnnotation>
+                    </gauge:RadialAxis.Annotations>
+                </gauge:RadialAxis>
+            </gauge:SfRadialGauge.Axes>
+        </gauge:SfRadialGauge>
+
+    </Grid>
+
+</ContentPage>
